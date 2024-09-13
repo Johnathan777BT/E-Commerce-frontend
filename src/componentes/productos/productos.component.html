@@ -1,0 +1,112 @@
+
+<div class="card-body">
+
+    <div class="card-header">
+     
+ <form  [formGroup]="registerForm" class="w-250 container card" enctype="multipart/form-data" >
+ 
+     <div class="form-row row">
+    
+    <div class="col-md-5">
+ 
+     <div class="form-group">
+         <div class="card-header">
+              <span >
+             <p class="text-primary">Datos Generales</p>
+           </span>
+         </div>
+         <input type="hidden" formControlName="id" class="form-control mb-3" id="id">
+ 
+         <div >
+             <label for="inputFirstName" class="col-form-label">Nombre</label>
+         <input type="text" formControlName="nombre" class="form-control mb-3" id="nombre">
+         
+             <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="text-danger">
+                 <div *ngIf="nombre.errors?.['required']">
+                     El Nombre es requerido.
+                 </div>
+ 
+             </div>
+         </div>
+     </div>
+     
+ 
+     <div class="form-group">
+     
+        <div >
+            <label for="inputFirstName" class="col-form-label">Descripcion</label>
+        <input type="text" formControlName="descripcion" class="form-control mb-3" id="descripcion">
+        
+            <div *ngIf="descripcion.invalid && (descripcion.dirty || descripcion.touched)" class="text-danger">
+                <div *ngIf="descripcion.errors?.['required']">
+                    La Desripcion es requerida.
+                </div>
+
+            </div>
+        </div>
+
+     </div>
+ 
+ 
+     <div class="form-group">
+        
+         <div>
+             <label for="inputLasttName" class="col-form-label">Precio</label>
+         <input type="text" formControlName="precio" class="form-control" id="precio"
+         (keypress)="validateFormat($event)">
+     
+         <div *ngIf="precio.invalid && (precio.dirty || precio.touched)" class="text-danger">
+             <div *ngIf="precio.errors?.['required']">
+                 El precio es requerido.
+             </div>
+         </div>
+ 
+     </div>
+     </div>
+  
+ 
+     <div class="form-group">
+      
+         <div >
+             <label for="inputLasttName" class="col-form-label">Estado</label>
+         
+         <!--    <input type="text" formControlName="estado" class="form-control" id="estado"
+         >--> 
+
+         <select  formControlName="estado" id="estado" class="form-control">
+            <option value="Disponible">Disponible</option>
+            <option value="Agotado">Agotado</option>
+           
+          </select>
+     
+     </div>
+     </div>
+
+
+     <div class="form-group">
+      
+        <div >
+            <label for="inputLasttName" class="col-form-label">Imagen</label>
+        <input type="file" formControlName="file" class="form-control" id="file"
+      accept="/image/*"  (change)="upload($event)"
+        [ngClass]="{'is-invalid animated shake': file.invalid && file.touched}">
+    
+    </div>
+    </div>
+
+    
+ <button type="submit" (click)="saveData()"  class="btn btn-dark mt-3  mx-5">Enviar Formulario</button>
+    
+ 
+    
+ </div>
+ 
+ </div>
+ 
+ </form>
+ </div>
+ 
+ </div>
+ 
+ 
+

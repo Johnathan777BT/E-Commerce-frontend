@@ -1,0 +1,85 @@
+
+<div class="card-body">
+
+    <div class="card-header">
+     
+ <form  [formGroup]="registerForm" class="w-250 container card">
+ 
+     <div class="form-row row">
+    
+    <div class="col-md-5">
+ 
+
+
+
+
+     <div class="form-group">
+         <div class="card-header">
+              <span >
+             <p class="text-primary">Datos Generales del Producto</p>
+           </span>
+         </div>
+         <input type="hidden" formControlName="id" class="form-control mb-3" id="id">
+ 
+         <div>
+            <span class="text-success">
+                Nombre: <span class="text-dark">{{lista.name}} </span> 
+              </span>
+ <p></p>
+              <span class="text-success">
+               Descripción: <span class="text-dark">  {{lista.description}} </span> 
+              </span>
+              <p></p>
+              <div class="">
+                <img src="{{lista.url}}" width="80" height="80" />
+                </div>
+
+             
+
+ <p></p>
+              <span class="text-success">
+                Precio: <span class="text-dark">{{lista.price | currency}} </span>  
+              </span>
+              <p></p>
+              <span class="text-success">
+                Estado:   <span class="text-dark"> {{lista.status}} </span>
+              </span>
+              <p></p>   
+         </div>
+
+
+         <div >
+             <label for="inputFirstName" class="text-success">Cantidad:</label>
+         <input type="number" formControlName="cantidad" class="form-control mb-3" id="cantidad">
+         
+             <div *ngIf="cantidad.invalid && (cantidad.dirty || cantidad.touched)" class="text-danger">
+                 <div *ngIf="cantidad.errors?.['required']">
+                    La cantidad es requerida.
+                 </div>
+ 
+             </div>
+         </div>
+     </div>
+
+     
+    
+   
+     
+
+
+    
+ <button type="submit" (click)="saveData()"  class="btn btn-dark mt-3  mx-5">Agregar al Carrito</button>
+    
+ 
+    
+ </div>
+ 
+ </div>
+ 
+ </form>
+ </div>
+ 
+ </div>
+ 
+ 
+

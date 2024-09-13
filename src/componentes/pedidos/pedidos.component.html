@@ -1,0 +1,73 @@
+
+<div class="card-body">
+
+    <div class="card-header">
+     
+ <form  [formGroup]="registerForm" class="w-250 container card">
+ 
+     <div class="form-row row">
+    
+    <div class="col-md-5">
+ 
+     <div class="form-group">
+         <div class="card-header">
+              <span >
+             <p class="text-primary">Datos Generales</p>
+           </span>
+         </div>
+         <input type="hidden" formControlName="id" class="form-control mb-3" id="id">
+ 
+         <div >
+             <label for="inputFirstName" class="col-form-label">Numero</label>
+         <input type="text" formControlName="numero" class="form-control mb-3" id="numero">
+         
+             <div *ngIf="numero.invalid && (numero.dirty || numero.touched)" class="text-danger">
+                 <div *ngIf="numero.errors?.['required']">
+                     El Numero es requerido.
+                 </div>
+ 
+             </div>
+         </div>
+     </div>
+
+     
+     <div class="form-group">
+     
+        <div >
+
+            <label for="inputfechafin" class="col-form-label">Fecha Creacion: </label>
+        
+            <mat-form-field appearance="fill">
+                <mat-label>Fecha</mat-label>
+                <input  matInput [matDatepicker]="dob1" formControlName="fecha">
+                <mat-datepicker-toggle matSuffix [for]="dob1"></mat-datepicker-toggle>
+                <mat-datepicker #dob1></mat-datepicker>
+              </mat-form-field>
+            
+        <div *ngIf="fecha.invalid && (fecha.dirty || fecha.touched)" class="text-danger">
+            <div *ngIf="fecha.errors?.['required']">
+                La fecha es requerida.
+            </div>
+        </div>
+    </div>
+    </div>
+   
+     
+
+
+    
+ <button type="submit" (click)="saveData()"  class="btn btn-dark mt-3  mx-5">Enviar Formulario</button>
+    
+ 
+    
+ </div>
+ 
+ </div>
+ 
+ </form>
+ </div>
+ 
+ </div>
+ 
+ 
+
